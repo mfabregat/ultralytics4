@@ -5,3 +5,22 @@ git fetch upstream
 git reset --hard upstream/main
 git push origin upstream-sync --force
 
+🔀 Then: Merge or Rebase into Your main
+Option A: Merge (preserves your commit history)
+bash
+Copiar
+Editar
+git checkout main
+git merge upstream-sync
+Option B: Rebase (cleaner history)
+bash
+Copiar
+Editar
+git checkout main
+git rebase upstream-sync
+Resolve any conflicts, then:
+
+bash
+Copiar
+Editar
+git push origin main
