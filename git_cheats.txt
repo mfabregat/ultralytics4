@@ -1,0 +1,7 @@
+🔄 Later: Keeping upstream-sync Updated
+
+git checkout upstream-sync
+git fetch upstream
+git reset --hard upstream/main
+git push origin upstream-sync --force
+
