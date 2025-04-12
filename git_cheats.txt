@@ -1,26 +1,27 @@
-🔄 Later: Keeping upstream-sync Updated
+When the original Ultralytics repository updates, you can sync those changes into your fork:
 
-git checkout upstream-sync
+# Fetch the latest changes from upstream
 git fetch upstream
+
+# Switch to the upstream-sync branch
+git checkout upstream-sync
+
+# Reset it to match the upstream's main branch
 git reset --hard upstream/main
+
+# Push the updated upstream-sync branch to your fork
 git push origin upstream-sync --force
 
-🔀 Then: Merge or Rebase into Your main
-Option A: Merge (preserves your commit history)
-bash
-Copiar
-Editar
-git checkout main
-git merge upstream-sync
-Option B: Rebase (cleaner history)
-bash
-Copiar
-Editar
-git checkout main
-git rebase upstream-sync
-Resolve any conflicts, then:
 
-bash
-Copiar
-Editar
+Then, to incorporate these updates into your main branch:
+
+# Switch to your main branch
+git checkout main
+
+# Merge the updates from upstream-sync into main
+git merge upstream-sync
+
+# Resolve any conflicts if they arise, then commit
+
+# Push the updated main branch to your fork
 git push origin main
