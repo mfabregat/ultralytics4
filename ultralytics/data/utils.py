@@ -33,6 +33,7 @@ from ultralytics.utils import (
 from ultralytics.utils.checks import check_file, check_font, is_ascii
 from ultralytics.utils.downloads import download, safe_download, unzip_file
 from ultralytics.utils.ops import segments2boxes
+from ultralytics.utils.imread import imread
 
 HELP_URL = "See https://docs.ultralytics.com/datasets for dataset formatting guidance."
 IMG_FORMATS = {"bmp", "dng", "jpeg", "jpg", "mpo", "png", "tif", "tiff", "webp", "pfm", "heic"}  # image suffixes
@@ -649,7 +650,7 @@ def compress_one_image(f, f_new=None, max_dim=1920, quality=50):
         im.save(f_new or f, "JPEG", quality=quality, optimize=True)  # save
     except Exception as e:  # use OpenCV
         LOGGER.info(f"WARNING ⚠️ HUB ops PIL failure {f}: {e}")
-        im = cv2.imread(f)
+        im = imread(f)
         im_height, im_width = im.shape[:2]
         r = max_dim / max(im_height, im_width)  # ratio
         if r < 1.0:  # image too large

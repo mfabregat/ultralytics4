@@ -25,7 +25,7 @@ class InstanceSegmentation(BaseSolution):
 
     Examples:
         >>> segmenter = InstanceSegmentation()
-        >>> frame = cv2.imread("frame.jpg")
+        >>> frame = imread("frame.jpg")
         >>> results = segmenter.segment(frame)
         >>> print(f"Total segmented instances: {results['total_tracks']}")
     """
@@ -57,7 +57,7 @@ class InstanceSegmentation(BaseSolution):
 
         Examples:
             >>> segmenter = InstanceSegmentation()
-            >>> frame = cv2.imread("image.jpg")
+            >>> frame = imread("image.jpg")
             >>> summary = segmenter.segment(frame)
             >>> print(summary)
         """

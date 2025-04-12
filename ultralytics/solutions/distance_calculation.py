@@ -26,7 +26,7 @@ class DistanceCalculation(BaseSolution):
 
     Examples:
         >>> distance_calc = DistanceCalculation()
-        >>> frame = cv2.imread("frame.jpg")
+        >>> frame = imread("frame.jpg")
         >>> results = distance_calc.process(frame)
         >>> cv2.imshow("Distance Calculation", results.plot_im)
         >>> cv2.waitKey(0)

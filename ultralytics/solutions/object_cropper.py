@@ -25,7 +25,7 @@ class ObjectCropper(BaseSolution):
 
     Examples:
         >>> cropper = ObjectCropper()
-        >>> frame = cv2.imread("frame.jpg")
+        >>> frame = imread("frame.jpg")
         >>> processed_results = cropper.process(frame)
         >>> print(f"Total cropped objects: {cropper.crop_idx}")
     """
@@ -63,7 +63,7 @@ class ObjectCropper(BaseSolution):
 
         Examples:
             >>> cropper = ObjectCropper()
-            >>> frame = cv2.imread("image.jpg")
+            >>> frame = imread("image.jpg")
             >>> results = cropper.process(frame)
             >>> print(f"Total cropped objects: {results.total_crop_objects}")
         """

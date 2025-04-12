@@ -12,6 +12,7 @@ from PIL import Image
 from ultralytics.data.utils import exif_size, img2label_paths
 from ultralytics.utils import TQDM
 from ultralytics.utils.checks import check_requirements
+from ultralytics.utils.imread import imread
 
 
 def bbox_iof(polygon1, bbox2, eps=1e-6):
@@ -180,7 +181,7 @@ def crop_and_save(anno, windows, window_objs, im_dir, lb_dir, allow_background_i
                     - train
                     - val
     """
-    im = cv2.imread(anno["filepath"])
+    im = imread(anno["filepath"])
     name = Path(anno["filepath"]).stem
     for i, window in enumerate(windows):
         x_start, y_start, x_stop, y_stop = window.tolist()
@@ -311,7 +312,7 @@ def split_test(data_root, save_dir, crop_size=1024, gap=200, rates=(1.0,)):
     for im_file in TQDM(im_files, total=len(im_files), desc="test"):
         w, h = exif_size(Image.open(im_file))
         windows = get_windows((h, w), crop_sizes=crop_sizes, gaps=gaps)
-        im = cv2.imread(im_file)
+        im = imread(im_file)
         name = Path(im_file).stem
         for window in windows:
             x_start, y_start, x_stop, y_stop = window.tolist()

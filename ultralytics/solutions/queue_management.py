@@ -56,7 +56,7 @@ class QueueManager(BaseSolution):
 
         Examples:
             >>> queue_manager = QueueManager()
-            >>> frame = cv2.imread("frame.jpg")
+            >>> frame = imread("frame.jpg")
             >>> results = queue_manager.process(frame)
         """
         self.counts = 0  # Reset counts every frame

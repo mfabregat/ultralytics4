@@ -27,7 +27,7 @@ class Heatmap(ObjectCounter):
     Examples:
         >>> from ultralytics.solutions import Heatmap
         >>> heatmap = Heatmap(model="yolo11n.pt", colormap=cv2.COLORMAP_JET)
-        >>> frame = cv2.imread("frame.jpg")
+        >>> frame = imread("frame.jpg")
         >>> processed_frame = heatmap.process(frame)
     """
 

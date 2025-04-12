@@ -28,7 +28,7 @@ class SecurityAlarm(BaseSolution):
     Examples:
         >>> security = SecurityAlarm()
         >>> security.authenticate("abc@gmail.com", "1111222233334444", "xyz@gmail.com")
-        >>> frame = cv2.imread("frame.jpg")
+        >>> frame = imread("frame.jpg")
         >>> results = security.process(frame)
     """
 
@@ -82,7 +82,7 @@ class SecurityAlarm(BaseSolution):
 
         Examples:
             >>> alarm = SecurityAlarm()
-            >>> frame = cv2.imread("path/to/image.jpg")
+            >>> frame = imread("path/to/image.jpg")
             >>> alarm.send_email(frame, records=10)
         """
         from email.mime.image import MIMEImage
@@ -131,7 +131,7 @@ class SecurityAlarm(BaseSolution):
 
         Examples:
             >>> alarm = SecurityAlarm()
-            >>> frame = cv2.imread("path/to/image.jpg")
+            >>> frame = imread("path/to/image.jpg")
             >>> results = alarm.process(frame)
         """
         self.extract_tracks(im0)  # Extract tracks

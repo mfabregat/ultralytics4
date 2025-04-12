@@ -133,7 +133,7 @@ class GMC:
              [0. 1. 0.]]
         """
         height, width, _ = raw_frame.shape
-        frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGR2GRAY)
+        frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGRA2GRAY)
         H = np.eye(2, 3, dtype=np.float32)
 
         # Downscale image
@@ -179,7 +179,7 @@ class GMC:
             (2, 3)
         """
         height, width, _ = raw_frame.shape
-        frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGR2GRAY)
+        frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGRA2GRAY)
         H = np.eye(2, 3)
 
         # Downscale image
@@ -321,7 +321,7 @@ class GMC:
              [0. 1. 0.]]
         """
         height, width, _ = raw_frame.shape
-        frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGR2GRAY)
+        frame = cv2.cvtColor(raw_frame, cv2.COLOR_BGRA2GRAY)
         H = np.eye(2, 3)
 
         # Downscale image

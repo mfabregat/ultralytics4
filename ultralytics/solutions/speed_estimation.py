@@ -31,7 +31,7 @@ class SpeedEstimator(BaseSolution):
 
     Examples:
         >>> estimator = SpeedEstimator()
-        >>> frame = cv2.imread("frame.jpg")
+        >>> frame = imread("frame.jpg")
         >>> results = estimator.process(frame)
         >>> cv2.imshow("Speed Estimation", results.plot_im)
     """

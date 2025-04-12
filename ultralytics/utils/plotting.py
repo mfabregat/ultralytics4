@@ -172,7 +172,7 @@ class Annotator:
 
     Examples:
         >>> from ultralytics.utils.plotting import Annotator
-        >>> im0 = cv2.imread("test.png")
+        >>> im0 = imread("test.png")
         >>> annotator = Annotator(im0, line_width=10)
     """
 
@@ -262,7 +262,7 @@ class Annotator:
 
         Examples:
             >>> from ultralytics.utils.plotting import Annotator
-            >>> im0 = cv2.imread("test.png")
+            >>> im0 = imread("test.png")
             >>> annotator = Annotator(im0, line_width=10)
             >>> annotator.get_txt_color(color=(104, 31, 17))  # return (255, 255, 255)
         """
@@ -286,7 +286,7 @@ class Annotator:
 
         Examples:
             >>> from ultralytics.utils.plotting import Annotator
-            >>> im0 = cv2.imread("test.png")
+            >>> im0 = imread("test.png")
             >>> annotator = Annotator(im0, line_width=10)
             >>> annotator.box_label(box=[10, 20, 30, 40], label="person")
         """
@@ -515,7 +515,7 @@ class Annotator:
 
         Examples:
             >>> from ultralytics.utils.plotting import Annotator
-            >>> im0 = cv2.imread("test.png")
+            >>> im0 = imread("test.png")
             >>> annotator = Annotator(im0, line_width=10)
             >>> annotator.get_bbox_dimension(bbox=[10, 20, 30, 40])
         """
@@ -614,7 +614,7 @@ def save_one_box(xyxy, im, file=Path("im.jpg"), gain=1.02, pad=10, square=False,
     Examples:
         >>> from ultralytics.utils.plotting import save_one_box
         >>> xyxy = [50, 50, 150, 150]
-        >>> im = cv2.imread("image.jpg")
+        >>> im = imread("image.jpg")
         >>> cropped_im = save_one_box(xyxy, im, file="cropped.jpg", square=True)
     """
     if not isinstance(xyxy, torch.Tensor):  # may be list
@@ -701,8 +701,19 @@ def plot_images(
     # Build Image
     mosaic = np.full((int(ns * h), int(ns * w), 3), 255, dtype=np.uint8)  # init
     for i in range(bs):
+        # x, y = int(w * (i // ns)), int(h * (i % ns))  # block origin
+        # (G, B, D, R) = cv2.split(images[i])
+        # merged = cv2.merge([R, G, B])
+        # mosaic[y:y + h, x:x + w, :] = merged
+
+        images[i] = images[i].astype(np.uint8)  # convert to uint8
         x, y = int(w * (i // ns)), int(h * (i % ns))  # block origin
-        mosaic[y : y + h, x : x + w, :] = images[i].transpose(1, 2, 0)
+        channels = cv2.split(images[i])
+        (G, B, R, D) = channels[0]
+        merged = cv2.merge([R, G, B])
+        mosaic[y : y + h, x : x + w, :] = merged  # place image in mosaic
+
+
 
     # Resize (optional)
     scale = max_size / ns / max(h, w)

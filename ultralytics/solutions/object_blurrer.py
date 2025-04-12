@@ -27,7 +27,7 @@ class ObjectBlurrer(BaseSolution):
 
     Examples:
         >>> blurrer = ObjectBlurrer()
-        >>> frame = cv2.imread("frame.jpg")
+        >>> frame = imread("frame.jpg")
         >>> processed_results = blurrer.process(frame)
         >>> print(f"Total blurred objects: {processed_results.total_tracks}")
     """
@@ -64,7 +64,7 @@ class ObjectBlurrer(BaseSolution):
 
         Examples:
             >>> blurrer = ObjectBlurrer()
-            >>> frame = cv2.imread("image.jpg")
+            >>> frame = imread("image.jpg")
             >>> results = blurrer.process(frame)
             >>> print(f"Blurred {results.total_tracks} objects")
         """

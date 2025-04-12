@@ -24,7 +24,7 @@ class AIGym(BaseSolution):
 
     Examples:
         >>> gym = AIGym(model="yolo11n-pose.pt")
-        >>> image = cv2.imread("gym_scene.jpg")
+        >>> image = imread("gym_scene.jpg")
         >>> results = gym.process(image)
         >>> processed_image = results.plot_im
         >>> cv2.imshow("Processed Image", processed_image)
@@ -71,7 +71,7 @@ class AIGym(BaseSolution):
 
         Examples:
             >>> gym = AIGym()
-            >>> image = cv2.imread("workout.jpg")
+            >>> image = imread("workout.jpg")
             >>> results = gym.process(image)
             >>> processed_image = results.plot_im
         """

@@ -42,7 +42,7 @@ class Analytics(BaseSolution):
 
     Examples:
         >>> analytics = Analytics(analytics_type="line")
-        >>> frame = cv2.imread("image.jpg")
+        >>> frame = imread("image.jpg")
         >>> results = analytics.process(frame, frame_number=1)
         >>> cv2.imshow("Analytics", results.plot_im)
     """

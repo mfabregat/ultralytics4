@@ -306,7 +306,7 @@ class BaseModel(torch.nn.Module):
 class DetectionModel(BaseModel):
     """YOLO detection model."""
 
-    def __init__(self, cfg="yolo11n.yaml", ch=3, nc=None, verbose=True):  # model, input channels, number of classes
+    def __init__(self, cfg="yolo11n.yaml", ch=4, nc=None, verbose=True):  # model, input channels, number of classes
         """
         Initialize the YOLO detection model with the given config and parameters.
 
@@ -434,7 +434,7 @@ class DetectionModel(BaseModel):
 class OBBModel(DetectionModel):
     """YOLO Oriented Bounding Box (OBB) model."""
 
-    def __init__(self, cfg="yolo11n-obb.yaml", ch=3, nc=None, verbose=True):
+    def __init__(self, cfg="yolo11n-obb.yaml", ch=4, nc=None, verbose=True):
         """
         Initialize YOLO OBB model with given config and parameters.
 
@@ -454,7 +454,7 @@ class OBBModel(DetectionModel):
 class SegmentationModel(DetectionModel):
     """YOLO segmentation model."""
 
-    def __init__(self, cfg="yolo11n-seg.yaml", ch=3, nc=None, verbose=True):
+    def __init__(self, cfg="yolo11n-seg.yaml", ch=4, nc=None, verbose=True):
         """
         Initialize YOLOv8 segmentation model with given config and parameters.
 
@@ -474,7 +474,7 @@ class SegmentationModel(DetectionModel):
 class PoseModel(DetectionModel):
     """YOLO pose model."""
 
-    def __init__(self, cfg="yolo11n-pose.yaml", ch=3, nc=None, data_kpt_shape=(None, None), verbose=True):
+    def __init__(self, cfg="yolo11n-pose.yaml", ch=4, nc=None, data_kpt_shape=(None, None), verbose=True):
         """
         Initialize YOLOv8 Pose model.
 
@@ -500,7 +500,7 @@ class PoseModel(DetectionModel):
 class ClassificationModel(BaseModel):
     """YOLO classification model."""
 
-    def __init__(self, cfg="yolo11n-cls.yaml", ch=3, nc=None, verbose=True):
+    def __init__(self, cfg="yolo11n-cls.yaml", ch=4, nc=None, verbose=True):
         """
         Initialize ClassificationModel with YAML, channels, number of classes, verbose flag.
 
@@ -585,7 +585,7 @@ class RTDETRDetectionModel(DetectionModel):
         predict: Performs a forward pass through the network and returns the output.
     """
 
-    def __init__(self, cfg="rtdetr-l.yaml", ch=3, nc=None, verbose=True):
+    def __init__(self, cfg="rtdetr-l.yaml", ch=4, nc=None, verbose=True):
         """
         Initialize the RTDETRDetectionModel.
 
@@ -685,7 +685,7 @@ class RTDETRDetectionModel(DetectionModel):
 class WorldModel(DetectionModel):
     """YOLOv8 World Model."""
 
-    def __init__(self, cfg="yolov8s-world.yaml", ch=3, nc=None, verbose=True):
+    def __init__(self, cfg="yolov8s-world.yaml", ch=4, nc=None, verbose=True):
         """
         Initialize YOLOv8 world model with given config and parameters.
 
@@ -789,7 +789,7 @@ class WorldModel(DetectionModel):
 class YOLOEModel(DetectionModel):
     """YOLOE detection model."""
 
-    def __init__(self, cfg="yoloe-v8s.yaml", ch=3, nc=None, verbose=True):
+    def __init__(self, cfg="yoloe-v8s.yaml", ch=4, nc=None, verbose=True):
         """
         Initialize YOLOE model with given config and parameters.
 
@@ -1012,7 +1012,7 @@ class YOLOEModel(DetectionModel):
 class YOLOESegModel(YOLOEModel, SegmentationModel):
     """YOLOE segmentation model."""
 
-    def __init__(self, cfg="yoloe-v8s-seg.yaml", ch=3, nc=None, verbose=True):
+    def __init__(self, cfg="yoloe-v8s-seg.yaml", ch=4, nc=None, verbose=True):
         """
         Initialize YOLOE segmentation model with given config and parameters.
 

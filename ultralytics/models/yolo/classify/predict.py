@@ -61,7 +61,7 @@ class ClassificationPredictor(BasePredictor):
                 img = torch.stack([self.transforms(im) for im in img], dim=0)
             else:
                 img = torch.stack(
-                    [self.transforms(Image.fromarray(cv2.cvtColor(im, cv2.COLOR_BGR2RGB))) for im in img], dim=0
+                    [self.transforms(Image.fromarray(cv2.cvtColor(im, cv2.COLOR_BGRA2RGBA))) for im in img], dim=0
                 )
         img = (img if isinstance(img, torch.Tensor) else torch.from_numpy(img)).to(self.model.device)
         return img.half() if self.model.fp16 else img.float()  # uint8 to fp16/32

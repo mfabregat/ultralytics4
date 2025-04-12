@@ -28,7 +28,7 @@ class ObjectCounter(BaseSolution):
 
     Examples:
         >>> counter = ObjectCounter()
-        >>> frame = cv2.imread("frame.jpg")
+        >>> frame = imread("frame.jpg")
         >>> results = counter.process(frame)
         >>> print(f"Inward count: {counter.in_count}, Outward count: {counter.out_count}")
     """
@@ -135,7 +135,7 @@ class ObjectCounter(BaseSolution):
 
         Examples:
             >>> counter = ObjectCounter()
-            >>> frame = cv2.imread("image.jpg")
+            >>> frame = imread("image.jpg")
             >>> counter.display_counts(frame)
         """
         labels_dict = {
@@ -164,7 +164,7 @@ class ObjectCounter(BaseSolution):
 
         Examples:
             >>> counter = ObjectCounter()
-            >>> frame = cv2.imread("path/to/image.jpg")
+            >>> frame = imread("path/to/image.jpg")
             >>> results = counter.process(frame)
         """
         if not self.region_initialized:

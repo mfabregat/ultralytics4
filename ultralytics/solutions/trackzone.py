@@ -29,7 +29,7 @@ class TrackZone(BaseSolution):
 
     Examples:
         >>> tracker = TrackZone()
-        >>> frame = cv2.imread("frame.jpg")
+        >>> frame = imread("frame.jpg")
         >>> results = tracker.process(frame)
         >>> cv2.imshow("Tracked Frame", results.plot_im)
     """
@@ -61,7 +61,7 @@ class TrackZone(BaseSolution):
 
         Examples:
             >>> tracker = TrackZone()
-            >>> frame = cv2.imread("path/to/image.jpg")
+            >>> frame = imread("path/to/image.jpg")
             >>> results = tracker.process(frame)
         """
         annotator = SolutionAnnotator(im0, line_width=self.line_width)  # Initialize annotator

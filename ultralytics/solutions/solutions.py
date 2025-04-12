@@ -40,7 +40,7 @@ class BaseSolution:
     Examples:
         >>> solution = BaseSolution(model="yolo11n.pt", region=[(0, 0), (100, 0), (100, 100), (0, 100)])
         >>> solution.initialize_region()
-        >>> image = cv2.imread("image.jpg")
+        >>> image = imread("image.jpg")
         >>> solution.extract_tracks(image)
         >>> solution.display_output(image)
     """
@@ -114,7 +114,7 @@ class BaseSolution:
 
         Examples:
             >>> solution = BaseSolution()
-            >>> frame = cv2.imread("path/to/image.jpg")
+            >>> frame = imread("path/to/image.jpg")
             >>> solution.extract_tracks(frame)
         """
         self.tracks = self.model.track(source=im0, persist=True, classes=self.classes, **self.track_add_args)
@@ -173,7 +173,7 @@ class BaseSolution:
 
         Examples:
             >>> solution = BaseSolution()
-            >>> frame = cv2.imread("path/to/image.jpg")
+            >>> frame = imread("path/to/image.jpg")
             >>> solution.display_output(frame)
 
         Notes:

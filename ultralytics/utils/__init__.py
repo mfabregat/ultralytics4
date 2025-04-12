@@ -29,6 +29,7 @@ import yaml
 
 from ultralytics import __version__
 from ultralytics.utils.patches import imread, imshow, imwrite, torch_load, torch_save  # for patches
+from ultralytics.utils.imread import imread
 
 # PyTorch Multi-GPU DDP Constants
 RANK = int(os.getenv("RANK", -1))
@@ -1364,4 +1365,4 @@ torch.load = torch_load
 torch.save = torch_save
 if WINDOWS:
     # Apply cv2 patches for non-ASCII and non-UTF characters in image paths
-    cv2.imread, cv2.imwrite, cv2.imshow = imread, imwrite, imshow
+    imread, cv2.imwrite, cv2.imshow = imread, imwrite, imshow

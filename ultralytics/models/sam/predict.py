@@ -535,7 +535,7 @@ class Predictor(BasePredictor):
         Examples:
             >>> predictor = Predictor()
             >>> predictor.set_image("path/to/image.jpg")
-            >>> predictor.set_image(cv2.imread("path/to/image.jpg"))
+            >>> predictor.set_image(imread("path/to/image.jpg"))
 
         Notes:
             - This method should be called before performing inference on a new image.

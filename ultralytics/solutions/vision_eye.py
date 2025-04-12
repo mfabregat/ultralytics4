@@ -20,7 +20,7 @@ class VisionEye(BaseSolution):
 
     Examples:
         >>> vision_eye = VisionEye()
-        >>> frame = cv2.imread("frame.jpg")
+        >>> frame = imread("frame.jpg")
         >>> results = vision_eye.process(frame)
         >>> print(f"Total detected instances: {results.total_tracks}")
     """
@@ -50,7 +50,7 @@ class VisionEye(BaseSolution):
 
         Examples:
             >>> vision_eye = VisionEye()
-            >>> frame = cv2.imread("image.jpg")
+            >>> frame = imread("image.jpg")
             >>> results = vision_eye.process(frame)
             >>> print(f"Detected {results.total_tracks} objects")
         """
